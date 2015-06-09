@@ -1,0 +1,57 @@
+<head>
+<link href="http://hayageek.github.io/jQuery-Upload-File/uploadfile.min.css" rel="stylesheet">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="http://hayageek.github.io/jQuery-Upload-File/jquery.uploadfile.min.js"></script>
+</head>
+<body>
+<div id="singleupload2">Upload</div>
+</body>
+<h1>Listing products</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Avatar</th>
+      <th>Resume</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.name %></td>
+	<td><%= image_tag product.avatar.url(:medium) %></td>
+	<td><%= image_tag product.resume.url(:thumb) %></td>
+
+	<td><%= product.resume_file_name %></td>
+  
+        <td><%= link_to 'Show', product %></td>
+        <td><%= link_to 'Edit', edit_product_path(product) %></td>
+        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+<br>
+
+<%= link_to 'New Product', new_product_path %>
+
+
+<script>
+$("#singleupload2").uploadFile({
+url:"/home/kalpesh/Desktop/extra",
+allowedTypes:"png,gif,jpg,jpeg",
+fileName:"myfile"
+});
+</script>
+
+
+

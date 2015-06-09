@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Image Upload</title> 
+  <%= stylesheet_link_tag "application" %>
+  <%= stylesheet_link_tag "style" %>
+  <%= javascript_include_tag "application", media: 'all', 'data-turbolinks-track' => true  %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <%= javascript_include_tag "comman", 'data-turbolinks-track' => true %>
+  <% unless current_page? root_path %>
+    <div id="backbtn" ><a>Back</a></div>
+  <% end %>
+  
+  <%= yield %>
+
+</body>
+</html>
